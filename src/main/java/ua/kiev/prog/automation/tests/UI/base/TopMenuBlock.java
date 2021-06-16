@@ -11,7 +11,8 @@ public class TopMenuBlock extends Block {
     }
 
     private WebElement _getLinkLocatorStg(String faName) {
-        return this.element.findElement(By.xpath(".//div[@id='top-links']/ul/li/a/i[contains(@class, '" + faName +"')]/.."));
+        return this.element.findElement(By.xpath(".//div[@id='top-links']" +
+                "/ul/li/a/i[contains(@class, '" + faName +"')]/.."));
     }
 
     public WebElement contact() {
