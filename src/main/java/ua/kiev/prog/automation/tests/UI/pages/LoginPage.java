@@ -1,11 +1,9 @@
 package ua.kiev.prog.automation.tests.UI.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import ua.kiev.prog.automation.tests.UI.base.GuestSiteBasePage;
-import ua.kiev.prog.automation.tests.base.BasePage;
 
 import java.util.List;
 

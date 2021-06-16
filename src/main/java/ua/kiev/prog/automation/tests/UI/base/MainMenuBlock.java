@@ -2,11 +2,29 @@ package ua.kiev.prog.automation.tests.UI.base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import ua.kiev.prog.automation.tests.base.Block;
-import ua.kiev.prog.automation.tests.tools.Wait;
+
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class MainMenuBlock extends Block {
+
+
+    private final Map<String, String> subMenus = new HashMap<String, String>(){{
+        put("PC", "./following-sibling::div//ul/li[1]");
+        put("Mac", "./following-sibling::div//ul/li[2]");
+        put("Macs", "./following-sibling::div//ul/li[1]");
+        put("Windows", "./following-sibling::div//ul/li[2]");
+        put("Mice and Trackballs", "./following-sibling::div//ul/li[1]");
+        put("Monitors", "./following-sibling::div//ul/li[2]");
+        put("Printers", "./following-sibling::div//ul/li[3]");
+        put("Scanners", "./following-sibling::div//ul/li[4]");
+        put("Web Cameras", "./following-sibling::div//ul/li[5]");
+
+    }};
+
 
     public MainMenuBlock() {
         super(By.xpath("//nav[@id='menu']"));
@@ -79,18 +97,17 @@ public class MainMenuBlock extends Block {
                 .isDisplayed();
     }
 
-    public WebElement selectMenu(String menuName, String subMenuName) {
-        /*
-        Работает пока только с Desktop - PC
-         */
-
-        if (!isDropdownDisplayed(menuName)) {
-            Wait.sleep(5000);
-            this.choseElement(menuName).click();
+    public WebElement selectSubmenu(String menuName, String subMenuName) {
+        if (subMenuName != null) {
+            if (!isDropdownDisplayed(menuName)) {
+                this.choseElement(menuName).click();
+            }
+            return this.choseElement(menuName).findElement(
+                    By.xpath(this.subMenus.get(subMenuName))
+            );
+        } else {
+            return this.choseElement(menuName);
         }
-        return this.
-                choseElement(menuName).
-                findElement(By.xpath("./following-sibling::div//ul/li[1]"));
     }
 
 }
