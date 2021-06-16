@@ -55,11 +55,11 @@ public class LoginPage extends GuestSiteBasePage {
         return page(AccountPage.class);
     }
 
-    public AccountPage login(String email, String password, boolean clickSubmit){
+/*    public AccountPage login(String email, String password, boolean clickSubmit){
         email_element.sendKeys(email);
         password_element.sendKeys(password);
         submitButton.click();
         return page(AccountPage.class);
-    }
+    }*/
 
 }

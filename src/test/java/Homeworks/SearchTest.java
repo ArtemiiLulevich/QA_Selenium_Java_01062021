@@ -1,4 +1,4 @@
-package Homework_1;
+package Homeworks;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;

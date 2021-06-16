@@ -3,7 +3,6 @@ package ua.kiev.prog.automation.tests.base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 abstract public class Block {
 
