@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
+import ua.kiev.prog.automation.tests.UI.pages.AccountPage;
 import ua.kiev.prog.automation.tests.base.BasePage;
 
 import java.util.List;
@@ -27,14 +28,15 @@ public class LoginFactory extends BasePage {
     @FindBys(@FindBy(xpath = "//div[@id='account-login']//div[contains(@class, 'alert-danger')]"))
     public List<WebElement> errorMessageList;
 
-    public LoginFactory(WebDriver driver) {
-        super(driver);
-    }
+//    public LoginFactory(WebDriver driver) {
+//        super(driver);
+//    }
 
-    public void login(String email, String password) {
+    public AccountPage login(String email, String password) {
         email_element.sendKeys(email);
         password_element.sendKeys(password);
         submitButton.click();
+        return page(AccountPage.class);
     }
 //    public List<WebElement> getErrorMessages() {
 //        return driver.findElements(ERROR_LOCATOR_STRING);
