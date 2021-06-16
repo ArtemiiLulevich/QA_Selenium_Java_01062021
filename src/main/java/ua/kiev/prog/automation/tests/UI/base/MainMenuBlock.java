@@ -97,14 +97,19 @@ public class MainMenuBlock extends Block {
                 .isDisplayed();
     }
 
-    public WebElement selectSubmenu(String menuName, String subMenuName) {
+    private WebElement choseSubMenu(String menuName, String subMenuName) {
+        if (!isDropdownDisplayed(menuName)) {
+            this.choseElement(menuName).click();
+        }
+        return this.choseElement(menuName).findElement(
+                By.xpath(this.subMenus.get(subMenuName))
+        );
+    }
+
+
+    public WebElement selectMenu(String menuName, String subMenuName) {
         if (subMenuName != null) {
-            if (!isDropdownDisplayed(menuName)) {
-                this.choseElement(menuName).click();
-            }
-            return this.choseElement(menuName).findElement(
-                    By.xpath(this.subMenus.get(subMenuName))
-            );
+            return choseSubMenu(menuName, subMenuName);
         } else {
             return this.choseElement(menuName);
         }
