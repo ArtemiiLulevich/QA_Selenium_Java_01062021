@@ -8,7 +8,6 @@ import ua.kiev.prog.automation.tests.UI.base.GuestSiteBasePage;
 import java.util.List;
 
 public class MainMenuPage extends GuestSiteBasePage {
-    //#TODO Добавить функционал работы со страницей
 
     @FindBys
     (@FindBy(xpath = "//div[@class='product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12']"))

@@ -33,9 +33,6 @@ public class MainMenuTest extends BaseUITest {
         IndexPage landingPage = new IndexPage();
         MainMenuPage mainMenuPage;
 
-//        Wait.sleep(5000);
-        //#TODO Нужно добавить тест. Довать разделение по методу goToMenu с другой сигнатурой
-
         if (submenu == null) {
             mainMenuPage = landingPage.goToMenu(menu);
         } else {
@@ -44,7 +41,6 @@ public class MainMenuTest extends BaseUITest {
 
         List<WebElement> menuItems = mainMenuPage.getMenuItems();
         Assert.assertEquals(menuItems.size(), count);
-
     }
 
 }
