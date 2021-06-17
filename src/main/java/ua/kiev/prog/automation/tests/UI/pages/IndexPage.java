@@ -19,4 +19,10 @@ public class IndexPage extends GuestSiteBasePage {
         return page(MainMenuPage.class);
     }
 
+    public SearchResultPage search(String item) {
+        search.searchInput().sendKeys(item);
+        search.searchButton().click();
+        return page(SearchResultPage.class);
+    }
+
 }

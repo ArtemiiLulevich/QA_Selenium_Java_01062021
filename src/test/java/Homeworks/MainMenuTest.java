@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import ua.kiev.prog.automation.tests.UI.pages.IndexPage;
 import ua.kiev.prog.automation.tests.UI.pages.MainMenuPage;
 import ua.kiev.prog.automation.tests.base.BaseUITest;
-import ua.kiev.prog.automation.tests.tools.Wait;
 
 import java.util.List;
 
