@@ -1,38 +1,44 @@
 package ua.kiev.prog.automation.tests.UI.base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import ua.kiev.prog.automation.tests.UI.widgets.Dropdown;
 import ua.kiev.prog.automation.tests.base.Block;
 
 public class TopMenuBlock extends Block {
 
+    final public Dropdown currency = new Dropdown(this.element.$x(".//form[@id='form-currency']//button[@data-toggle='dropdown']"));
+    final public Dropdown language = new Dropdown(this.element.$x(".//form[@id='form-language']//button[@data-toggle='dropdown']"));
+
     public TopMenuBlock() {
-        super(By.xpath("//nav[@id='top']"));
+        super(Selenide.$x("//nav[@id='top']"));
     }
 
-    private WebElement _getLinkLocatorStg(String faName) {
-        return this.element.findElement(By.xpath(".//div[@id='top-links']" +
-                "/ul/li/a/i[contains(@class, '" + faName +"')]/.."));
+    private SelenideElement _getLinkLocatorStg(String faName) {
+        return this.element.$x(".//div[@id='top-links']" +
+                "/ul/li/a/i[contains(@class, '" + faName +"')]/..");
     }
 
-    public WebElement contact() {
+    public SelenideElement contact() {
         return _getLinkLocatorStg("fa-phone");
     }
 
-    protected WebElement account() {
+    protected SelenideElement account() {
         return _getLinkLocatorStg("fa-user");
     }
 
-    public WebElement bookmarks() {
+    public SelenideElement bookmarks() {
         return _getLinkLocatorStg("fa-heart");
     }
 
-    public WebElement cart() {
+    public SelenideElement cart() {
         return _getLinkLocatorStg("fa-shopping-cart");
     }
 
-    public WebElement checkout() {
+    public SelenideElement checkout() {
         return _getLinkLocatorStg("fa-share");
     }
+
+
 
 }

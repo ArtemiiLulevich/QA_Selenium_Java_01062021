@@ -1,8 +1,7 @@
 package ua.kiev.prog.automation.tests.UI.pages;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import ua.kiev.prog.automation.tests.UI.base.GuestSiteBasePage;
 
 import java.util.List;
@@ -34,17 +33,13 @@ public class LoginPage extends GuestSiteBasePage {
     }*/
 //    static final private By ERROR_LOCATOR_STRING = By.xpath("//div[@id='account-login']//div[contains(@class, 'alert-danger')]");
 
-    @FindBy(xpath = "//div[@id='content']//input[@id='input-email']")
-    public WebElement email_element;
+    public SelenideElement email_element = Selenide.$x("//div[@id='content']//input[@id='input-email']");
 
-    @FindBy(xpath = "//div[@id='content']//input[@id='input-password']")
-    public WebElement password_element;
+    public SelenideElement password_element = Selenide.$x("//div[@id='content']//input[@id='input-password']");
 
-    @FindBy(xpath = "//div[@id='content']//input[@type='submit']")
-    public WebElement submitButton;
+    public SelenideElement submitButton = Selenide.$x("//div[@id='content']//input[@type='submit']");
 
-    @FindBys(@FindBy(xpath = "//div[@id='account-login']//div[contains(@class, 'alert-danger')]"))
-    public List<WebElement> errorMessageList;
+    public List<SelenideElement> errorMessageList = Selenide.$$x("//div[@id='account-login']//div[contains(@class, 'alert-danger')]");
 
     public AccountPage login(String email, String password) {
         email_element.sendKeys(email);

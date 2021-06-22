@@ -1,8 +1,5 @@
 package Homeworks;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -12,9 +9,6 @@ import ua.kiev.prog.automation.tests.base.BaseUITest;
 
 
 public class SearchTest extends BaseUITest {
-
-    static final private By SEARCH_INPUT_LOCATOR = By.xpath("//div[@id='search']/input[@name='search']");
-    static final private By SEARCH_BUTTON_LOCATOR = By.xpath("//div[@id='search']//button");
 
     static final private String SEARCHING_ITEM_1 = "Samsung SyncMaster 941BW";
     static final private String SEARCHING_ITEM_2 = "iMac";
@@ -44,15 +38,6 @@ public class SearchTest extends BaseUITest {
 
         SearchResultPage searchResultPage = landingPage.search(item);
 
-/*        WebElement searchInput = driver.findElement(SEARCH_INPUT_LOCATOR);
-        searchInput.sendKeys(item);
-
-        WebElement searchButton = driver.findElement(SEARCH_BUTTON_LOCATOR);
-        searchButton.click();
-
-
-        SearchResultPage searchResultPage = new SearchResultPage();*/
-
         if(count == 0) {
             Assert.assertEquals(searchResultPage.getEmptyResult().getText(), result);
         } else {
@@ -60,6 +45,5 @@ public class SearchTest extends BaseUITest {
         }
 
     }
-
 
 }

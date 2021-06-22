@@ -1,9 +1,8 @@
 package ua.kiev.prog.automation.tests.UI.pages;
 
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import ua.kiev.prog.automation.tests.UI.base.GuestSiteBasePage;
 
 import java.util.List;
@@ -11,44 +10,24 @@ import java.util.List;
 
 public class SearchResultPage extends GuestSiteBasePage {
 
-    @FindBy(xpath = "//h4/a")
-    private WebElement searchedItem;
-
-    @FindBys(
-            @FindBy(xpath = "//div[@id='content']//div[@class='product-thumb']")
-    )
-    private List<WebElement> searchedItems;
+    private SelenideElement searchedItem = Selenide.$x("//h4/a");
 
 
-    @FindBy(xpath = "//div[@id='content']/p[2]")
-    private WebElement emptyResult;
+    private List<SelenideElement> searchedItems = Selenide.$$x("//div[@id='content']//div[@class='product-thumb']");
+
+    private SelenideElement emptyResult = Selenide.$x("//div[@id='content']/p[2]");
 
 
-    public WebElement getSearchedItem() {
+    public SelenideElement getSearchedItem() {
         return searchedItem;
     }
 
-    public List<WebElement> getSearchedItems() {
+    public List<SelenideElement> getSearchedItems() {
         return searchedItems;
     }
 
-    public WebElement getEmptyResult() {
+    public SelenideElement getEmptyResult() {
         return emptyResult;
     }
-
-//    static final private By SEARCHED_ITEM = By.xpath("//h4/a");
-//    static final private By SEARCH_RESULT = By.xpath("//div[@id='content']/p[2]");
-
-//    public SearchResultPage(WebDriver driver) {
-//        super(driver);
-//    }
-
-//    public WebElement getSearchedElement() {
-//        return driver.findElement(SEARCHED_ITEM);
-//    }
-//
-//    public WebElement getSearchResult() {
-//        return driver.findElement(SEARCH_RESULT);
-//    }
 
 }

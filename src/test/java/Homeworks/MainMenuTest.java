@@ -1,5 +1,6 @@
 package Homeworks;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -38,7 +39,7 @@ public class MainMenuTest extends BaseUITest {
             mainMenuPage = landingPage.goToMenu(menu, submenu);
         }
 
-        List<WebElement> menuItems = mainMenuPage.getMenuItems();
+        List<SelenideElement> menuItems = mainMenuPage.getMenuItems();
         Assert.assertEquals(menuItems.size(), count);
     }
 

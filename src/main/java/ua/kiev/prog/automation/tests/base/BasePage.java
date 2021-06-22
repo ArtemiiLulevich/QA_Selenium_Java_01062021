@@ -1,7 +1,7 @@
 package ua.kiev.prog.automation.tests.base;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+
 
 import java.lang.reflect.Constructor;
 
@@ -15,7 +15,7 @@ public class BasePage {
 //    }
 
     public BasePage() {
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
     }
 
     protected <T extends BasePage> T page(Class<T> pageClass){

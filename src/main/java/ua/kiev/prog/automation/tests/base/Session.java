@@ -1,5 +1,6 @@
 package ua.kiev.prog.automation.tests.base;
 
+import com.codeborne.selenide.Selenide;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -32,6 +33,7 @@ public class Session {
 
             _driver.get("http://zvisno.com/");
 
+            Selenide.open();
 //        driver.manage().window().maximize();
         }
         return _driver;

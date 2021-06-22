@@ -1,5 +1,6 @@
 package ua.kiev.prog.automation;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -66,11 +67,11 @@ public class LoginTest extends BaseUITest {
         LoginPage loginPage = landingPage.goToLoginPage();
         AccountPage accountPage = loginPage.login(email, password);
 
-        Wait.sleep(1000);
+//        Wait.sleep(1000);
 //        List<WebElement> errorMessageList = driver.findElements(ERROR_LOCATOR_STRING);
 
 //        List<WebElement> errorMessageList = loginPage.getErrorMessages();// callback функция
-        List<WebElement> errorMessageList = loginPage.errorMessageList;
+        List<SelenideElement> errorMessageList = loginPage.errorMessageList;
 
         if (errorMessage == null){
             Assert.assertEquals(errorMessageList.size(), 0, "Error message are shown: "
