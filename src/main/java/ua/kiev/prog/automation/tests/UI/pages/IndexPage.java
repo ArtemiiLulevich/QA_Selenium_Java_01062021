@@ -10,12 +10,12 @@ public class IndexPage extends GuestSiteBasePage {
     }
 
     public MainMenuPage goToMenu(String menuName, String subMenuName) {
-        mainMenu.selectMenu(menuName, subMenuName).click();
+        mainMenu.getMenu(menuName, subMenuName).click();
         return page(MainMenuPage.class);
     }
 
     public MainMenuPage goToMenu(String menuName) {
-        mainMenu.selectMenu(menuName, null).click();
+        mainMenu.getMenu(menuName, null).click();
         return page(MainMenuPage.class);
     }
 

@@ -66,9 +66,9 @@ public class MainMenuBlock extends Block {
         return _getLinkLocatorStr("MP3 Players");
     }*/
 
-    private WebElement choseElement(String name) {
-        return _getLinkLocatorStr(name);
-    }
+//    private WebElement _getLinkLocatorStr(String name) {
+//        return _getLinkLocatorStr(name);
+//    }
 
 /*    private boolean isDesktopsDisplayed() {
         return this.desktops()
@@ -92,26 +92,26 @@ public class MainMenuBlock extends Block {
     }*/
 
     private boolean isDropdownDisplayed(String name) {
-        return this.choseElement(name)
+        return this._getLinkLocatorStr(name)
                 .findElement(By.xpath("./following-sibling::div"))
                 .isDisplayed();
     }
 
-    private WebElement choseSubMenu(String menuName, String subMenuName) {
+    private WebElement getSubMenu(String menuName, String subMenuName) {
         if (!isDropdownDisplayed(menuName)) {
-            this.choseElement(menuName).click();
+            this._getLinkLocatorStr(menuName).click();
         }
-        return this.choseElement(menuName).findElement(
+        return this._getLinkLocatorStr(menuName).findElement(
                 By.xpath(this.subMenus.get(subMenuName))
         );
     }
 
 
-    public WebElement selectMenu(String menuName, String subMenuName) {
+    public WebElement getMenu(String menuName, String subMenuName) {
         if (subMenuName != null) {
-            return choseSubMenu(menuName, subMenuName);
+            return getSubMenu(menuName, subMenuName);
         } else {
-            return this.choseElement(menuName);
+            return this._getLinkLocatorStr(menuName);
         }
     }
 
