@@ -20,9 +20,9 @@ public class MainMenuTest extends BaseUITest {
                 {"Laptops & Notebooks", "Macs",         0},
                 {"Laptops & Notebooks", "Windows",      0},
                 {"Tablets",             null,           1},
-                {"Software",            null,           1},
-                {"Phones & PDAs",       null,           1},
-                {"Cameras",             null,           1}
+                {"Software",            null,           0},
+                {"Phones & PDAs",       null,           3},
+                {"Cameras",             null,           2}
         };
     }
 
