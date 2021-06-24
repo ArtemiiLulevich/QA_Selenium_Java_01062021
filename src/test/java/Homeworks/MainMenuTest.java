@@ -1,13 +1,12 @@
 package Homeworks;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ua.kiev.prog.automation.tests.UI.pages.IndexPage;
-import ua.kiev.prog.automation.tests.UI.pages.MainMenuPage;
-import ua.kiev.prog.automation.tests.base.BaseUITest;
+import ua.kiev.prog.automation.UI.pages.IndexPage;
+import ua.kiev.prog.automation.UI.pages.MainMenuPage;
+import ua.kiev.prog.automation.base.BaseUITest;
 
 import java.util.List;
 

@@ -1,18 +1,15 @@
 package ua.kiev.prog.automation;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ua.kiev.prog.automation.tests.UI.factory.LoginFactory;
-import ua.kiev.prog.automation.tests.UI.pages.AccountPage;
-import ua.kiev.prog.automation.tests.UI.pages.IndexPage;
-import ua.kiev.prog.automation.tests.UI.pages.LoginPage;
-import ua.kiev.prog.automation.tests.base.BaseUITest;
-import ua.kiev.prog.automation.tests.tools.Util;
-import ua.kiev.prog.automation.tests.tools.Wait;
+import ua.kiev.prog.automation.UI.pages.AccountPage;
+import ua.kiev.prog.automation.UI.pages.IndexPage;
+import ua.kiev.prog.automation.UI.pages.LoginPage;
+import ua.kiev.prog.automation.base.BaseUITest;
+import ua.kiev.prog.automation.tools.Util;
 
 import java.util.List;
 import java.util.stream.Collectors;

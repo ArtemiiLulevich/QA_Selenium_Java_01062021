@@ -1,30 +1,42 @@
 package ua.kiev.prog.automation;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.kiev.prog.automation.tests.UI.pages.IndexPage;
-import ua.kiev.prog.automation.tests.base.BaseUITest;
-import ua.kiev.prog.automation.tests.tools.Wait;
+import org.testng.asserts.SoftAssert;
+import ua.kiev.prog.automation.UI.pages.IndexPage;
+import ua.kiev.prog.automation.base.BaseUITest;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class TopMenuTest extends BaseUITest {
 
 
-    String[] expectedCurrency = new String[] {
+//    String[] expectedCurrency = new String[] {
+//            "€ Euro",
+//            "£ Pound Sterling",
+//            "$ US Dollar",
+//            "Sra"
+//    };
+
+    List<String> expectedCurrency = Arrays.asList(
             "€ Euro",
             "£ Pound Sterling",
             "$ US Dollar",
-            "Sra"
-    };
+            "bla");
 
-    String[] expectedLanguage = new String[] {
+//    String[] expectedLanguage = new String[] {
+//            "English",
+//            "Русский",
+//            "Українська",
+//            "n,"
+//    };
+
+    List<String> expectedLanguage = Arrays.asList(
             "English",
             "Русский",
             "Українська",
-            "n,"
-    };
+            "dfsgf");
 
     @Test
     public void topMenuTest() {
@@ -33,24 +45,50 @@ public class TopMenuTest extends BaseUITest {
 //        System.out.println(index.topMenu.currency.getValues());
 //        System.out.println(index.topMenu.language.getValues());
 
+        SoftAssert softAssert = new SoftAssert();
+
         List<String> actualCurrency = index.topMenu.currency.getValues();
-        for(String curr: expectedCurrency){
-            Assert.assertTrue(index.topMenu.currency.hasValue(curr), "Currency " + curr + " is not found.");
-        }
-
         List<String> actualLanguage = index.topMenu.language.getValues();
-        for(String lang: expectedLanguage){
-            Assert.assertTrue(index.topMenu.language.hasValue(lang), "Language " + lang + " is not found.");
-        }
+
+        Collections.sort(actualCurrency);
+        Collections.sort(expectedCurrency);
+        Collections.sort(actualLanguage);
+        Collections.sort(expectedLanguage);
 
 
-        index.topMenu.currency.selectValue("$ US Dollar");
-        index.topMenu.language.selectValue("Українська");
+        softAssert.assertEquals(
+                expectedCurrency,
+                actualCurrency,
+                "Currency is not Equals");
 
 
+        softAssert.assertEquals(
+                expectedLanguage,
+                actualLanguage,
+                "Language is not Equals");
 
-        Wait.sleep(1000);
-
+        softAssert.assertAll();
+//        index.topMenu.currency.selectValue("$ US Dollar");
+//        index.topMenu.language.selectValue("Українська");
 
     }
+
+//    @Test
+//    public void topMenuCurr() {
+//        IndexPage index = new IndexPage();
+//
+//        List<String> actualCurrency = index.topMenu.currency.getValues();
+//
+//        Assert.assertEquals(expectedCurrency, actualCurrency,"Currency is not Equals");
+//    }
+//
+//    @Test
+//    public void topMenuLang() {
+//        IndexPage index = new IndexPage();
+//
+//        List<String> actualLanguage = index.topMenu.language.getValues();
+//
+//        Assert.assertEquals(expectedLanguage, actualLanguage, "Language is not Equals");
+//    }
+
 }

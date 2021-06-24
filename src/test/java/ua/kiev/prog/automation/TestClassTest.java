@@ -5,8 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.kiev.prog.automation.tests.base.BaseUITest;
-import ua.kiev.prog.automation.tests.tools.Wait;
+import ua.kiev.prog.automation.base.BaseUITest;
+import ua.kiev.prog.automation.tools.Wait;
 
 
 public class TestClassTest extends BaseUITest {

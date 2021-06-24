@@ -3,9 +3,9 @@ package Homeworks;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ua.kiev.prog.automation.tests.UI.pages.IndexPage;
-import ua.kiev.prog.automation.tests.UI.pages.SearchResultPage;
-import ua.kiev.prog.automation.tests.base.BaseUITest;
+import ua.kiev.prog.automation.UI.pages.IndexPage;
+import ua.kiev.prog.automation.UI.pages.SearchResultPage;
+import ua.kiev.prog.automation.base.BaseUITest;
 
 
 public class SearchTest extends BaseUITest {
