@@ -41,6 +41,8 @@ public class LoginPage extends GuestSiteBasePage {
 
     public List<SelenideElement> errorMessageList = Selenide.$$x("//div[@id='account-login']//div[contains(@class, 'alert-danger')]");
 
+    public SelenideElement errorMessage = Selenide.$x("//div[@id='account-login']//div[contains(@class, 'alert-danger')]");
+
     public AccountPage login(String email, String password) {
         email_element.sendKeys(email);
         password_element.sendKeys(password);
@@ -51,6 +53,11 @@ public class LoginPage extends GuestSiteBasePage {
     @Override
     protected SelenideElement readyElement() {
         return email_element;
+    }
+
+    @Override
+    protected SelenideElement errorElement() {
+        return errorMessage;
     }
 
     /*    public AccountPage login(String email, String password, boolean clickSubmit){

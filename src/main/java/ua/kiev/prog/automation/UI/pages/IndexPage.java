@@ -30,4 +30,9 @@ public class IndexPage extends GuestSiteBasePage {
     protected SelenideElement readyElement() {
         return topMenu.accountAuthorization();
     }
+
+    @Override
+    protected SelenideElement errorElement() {
+        return null;
+    }
 }

@@ -38,7 +38,6 @@ abstract public class BasePage {
             if(!found){
                 Wait.sleep(500);
             }
-
         }
 
         if(!found)
@@ -46,6 +45,25 @@ abstract public class BasePage {
                     + this.getClass().getSimpleName());
     }
 
+    final public void confirmError() {
+        int timeOut = 30;
+        long endTime = Instant.now().getEpochSecond() + timeOut;
+        boolean found = false;
+
+        while (!found && endTime > Instant.now().getEpochSecond()){
+            found = this.errorElement().exists();
+            if(!found){
+                Wait.sleep(500);
+            }
+        }
+
+        if(!found)
+            throw new RuntimeException("Error element is not found for page: "
+                    + this.getClass().getSimpleName());
+    }
+
+
     abstract protected SelenideElement readyElement();
 
+    abstract protected SelenideElement errorElement();
 }

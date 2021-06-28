@@ -39,4 +39,19 @@ public class LoginTestSteps extends BaseSteps {
         accountPage.confirmPage();
     }
 
+    @When("^I enter invalid email \"(.+?)\"$")
+    public void iEnterInvalidEmail(String value) {
+        loginPage.email_element.sendKeys(value);
+    }
+
+    @When("^I enter invalid password \"(.+?)\"$")
+    public void iEnterInvalidPassword(String value) {
+        loginPage.password_element.sendKeys(value);
+    }
+
+    @Then("^error message is displayed$")
+    public void errorMessageIsDisplayed() {
+        loginPage.confirmError();
+    }
+
 }

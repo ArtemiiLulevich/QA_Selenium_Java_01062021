@@ -11,4 +11,9 @@ public class AccountPage extends UserSiteBasePage {
     protected SelenideElement readyElement() {
         return Selenide.$x("//aside[@id='column-right']//a[contains(@href,'account/logout')]");
     }
+
+    @Override
+    protected SelenideElement errorElement() {
+        return null;
+    }
 }

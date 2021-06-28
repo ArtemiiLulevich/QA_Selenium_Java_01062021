@@ -20,4 +20,9 @@ public class MainMenuPage extends GuestSiteBasePage {
     protected SelenideElement readyElement() {
         return null;
     }
+
+    @Override
+    protected SelenideElement errorElement() {
+        return null;
+    }
 }
