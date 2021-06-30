@@ -4,6 +4,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import ua.kiev.prog.automation.tools.API;
 
 public class BaseUITest {
 //    protected WebDriver driver;
@@ -32,6 +33,8 @@ public class BaseUITest {
 //            throw new RuntimeException("Driver is null.");
 //        }
 //    }
+
+    final protected API api = new API();
 
     protected WebDriver driver;
 

@@ -48,6 +48,19 @@ public class Dropdown extends Widget {
             throw new RuntimeException("Value \"" + value + "\" is not found for dropdown");
     }
 
+    public void selectValue(int index) {
+        if(!_menuList.isDisplayed())
+            this.element.click();
+        List<SelenideElement> list = _menuList.$$x("./li");
+        if (index >= list.size()) {
+            throw new RuntimeException("Index value is not range of list. Index: "
+                    + index
+                    + " Size: "
+                    + list.size());
+        }
+        list.get(index).click();
+    }
+
     public boolean hasValue(String value) {
         return _menuList.$x("./li[normalize-space()='" + value +"']").exists();
     }

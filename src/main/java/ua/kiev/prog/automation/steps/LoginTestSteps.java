@@ -3,10 +3,12 @@ package ua.kiev.prog.automation.steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 import ua.kiev.prog.automation.UI.pages.AccountPage;
 import ua.kiev.prog.automation.UI.pages.LoginPage;
 import ua.kiev.prog.automation.base.BaseSteps;
 import ua.kiev.prog.automation.base.Session;
+import ua.kiev.prog.automation.tools.Util;
 
 public class LoginTestSteps extends BaseSteps {
 
@@ -21,6 +23,9 @@ public class LoginTestSteps extends BaseSteps {
 
     @When("^I enter \"(.+?)\" to email filed$")
     public void iEnterValueToEmailFiled(String value){
+        if("$_INVALID_EMAIL_$".equals(value)){
+            value = Util.randomString(10) + "@gmail.com";
+        }
         loginPage.email_element.sendKeys(value);
     }
 
@@ -52,6 +57,19 @@ public class LoginTestSteps extends BaseSteps {
     @Then("^error message is displayed$")
     public void errorMessageIsDisplayed() {
         loginPage.confirmError();
+    }
+
+    @Then("^login result must be \"(.+?)\" and error message \"(.+?)\" is displayed$")
+    public void loginResultMustBeResultAndErrorMessage(String result, String errorMessage) {
+        if ("success".equalsIgnoreCase(result)) {
+            accountPage.confirmPage();
+        } else if ("fail".equalsIgnoreCase(result)) {
+            loginPage.confirmPage();
+            Assert.assertTrue(loginPage.isErrorMessageDisplayed(errorMessage),
+                    "Error message is not displayed: " + errorMessage);
+        } else {
+            throw new RuntimeException("Unknown result");
+        }
     }
 
 }

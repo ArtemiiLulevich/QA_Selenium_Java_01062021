@@ -26,7 +26,7 @@ public class Session {
             ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--start-maximized");
 //        options.addArguments("--disable-web-security"); first problem
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
 
             _driver = new ChromeDriver(options); // Create driver
 

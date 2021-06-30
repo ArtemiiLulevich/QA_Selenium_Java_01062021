@@ -21,8 +21,4 @@ public class MainMenuPage extends GuestSiteBasePage {
         return null;
     }
 
-    @Override
-    protected SelenideElement errorElement() {
-        return null;
-    }
 }

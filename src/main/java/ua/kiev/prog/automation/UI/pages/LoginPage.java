@@ -3,7 +3,9 @@ package ua.kiev.prog.automation.UI.pages;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import ua.kiev.prog.automation.UI.base.GuestSiteBasePage;
+import ua.kiev.prog.automation.tools.Wait;
 
+import java.time.Instant;
 import java.util.List;
 
 public class LoginPage extends GuestSiteBasePage {
@@ -49,13 +51,45 @@ public class LoginPage extends GuestSiteBasePage {
         submitButton.click();
         return page(AccountPage.class);
     }
+    
+    public boolean isErrorMessageDisplayed(String message) {
+        message = message.trim();
+
+        for (SelenideElement elem:
+             errorMessageList) {
+            if(elem.getText().trim().equals(message)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    final public void confirmError() {
+        int timeOut = 30;
+        long endTime = Instant.now().getEpochSecond() + timeOut;
+        boolean found = false;
+
+        while (!found && endTime > Instant.now().getEpochSecond()){
+            found = this.errorElement().exists();
+            if(!found){
+                Wait.sleep(500);
+            }
+        }
+
+        if(!found)
+            throw new RuntimeException("Error element is not found for page: "
+                    + this.getClass().getSimpleName());
+    }
 
     @Override
     protected SelenideElement readyElement() {
         return email_element;
     }
 
-    @Override
+    // TODO: 29.06.2021 переделать. Перенести данный элемент из Base PAge 
+
     protected SelenideElement errorElement() {
         return errorMessage;
     }
